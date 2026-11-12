@@ -1,0 +1,202 @@
+<%# app/views/sessions/new.html.erb %>
+<style>
+    /* Reset and Base Styles */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* Login Card Container */
+    .login-container {
+        background: #ffffff;
+        padding: 40px;
+        border-radius: 12px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        width: 100%;
+        max-width: 400px;
+    }
+
+    /* Header Title */
+    .login-header h2 {
+        color: #333333;
+        font-size: 26px;
+        margin-bottom: 8px;
+        text-align: center;
+    }
+
+    .login-header p {
+        color: #777777;
+        font-size: 14px;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    /* Form Group Styles */
+    .input-group {
+        margin-bottom: 20px;
+    }
+
+    .input-group label {
+        display: block;
+        color: #555555;
+        font-size: 14px;
+        margin-bottom: 6px;
+    }
+
+    .input-group input[type="text"],
+    .input-group input[type="password"] {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        font-size: 14px;
+        outline: none;
+        transition: border-color 0.3s ease;
+    }
+
+    .input-group input:focus {
+        border-color: #667eea;
+    }
+
+    /* Notice (Success) Message Box */
+    .notice-message {
+        color: #155724;
+        background-color: #d4edda;
+        border: 1px solid #c3e6cb;
+        padding: 10px;
+        border-radius: 6px;
+        margin-bottom: 20px;
+        text-align: center;
+        font-size: 14px;
+    }
+
+    /* Error Message Box */
+    .error-message {
+        color: #dc3545;
+        background-color: #f8d7da;
+        border: 1px solid #f5c6cb;
+        padding: 10px;
+        border-radius: 6px;
+        margin-bottom: 20px;
+        text-align: center;
+        font-size: 14px;
+    }
+
+    /* Additional Options */
+    .options {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 13px;
+        margin-bottom: 25px;
+    }
+
+    .options label {
+        color: #555;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        cursor: pointer;
+    }
+
+    .options a {
+        color: #667eea;
+        text-decoration: none;
+    }
+
+    .options a:hover {
+        text-decoration: underline;
+    }
+
+    /* Submit Button */
+    .login-btn {
+        width: 100%;
+        padding: 12px;
+        background: #667eea;
+        border: none;
+        border-radius: 6px;
+        color: #ffffff;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background 0.3s ease;
+    }
+
+    .login-btn:hover {
+        background: #5a6fd6;
+    }
+
+    /* Footer Link */
+    .signup-link {
+        text-align: center;
+        margin-top: 20px;
+        font-size: 13px;
+        color: #777;
+    }
+
+    .signup-link a {
+        color: #667eea;
+        text-decoration: none;
+        font-weight: 600;
+    }
+
+    .signup-link a:hover {
+        text-decoration: underline;
+    }
+</style>
+
+<div class="login-container">
+    <div class="login-header">
+        <h2>Welcome Back</h2>
+        <p>Please enter your details to sign in</p>
+    </div>
+    
+    <%# Success Notice Message %>
+    <% if flash[:notice] %>
+        <div class="notice-message">
+            <%= flash[:notice] %>
+        </div>
+    <% end %>
+
+    <%# Error Message %>
+    <% if flash[:error] %>
+        <div class="error-message">
+            <%= flash[:error] %>
+        </div>
+    <% end %>
+
+    <%= form_tag login_path, method: :post do %>
+        <div class="input-group">
+            <%= label_tag :username, "Username" %>
+            <%= text_field_tag :username, nil, placeholder: "Enter your username", required: true %>
+        </div>
+        
+        <div class="input-group">
+            <%= label_tag :password, "Password" %>
+            <%= password_field_tag :password, nil, placeholder: "••••••••", required: true %>
+        </div>
+        
+        <div class="options">
+            <label>
+                <input type="checkbox"> Remember me
+            </label>
+            <a href="#">Forgot password?</a>
+        </div>
+        
+        <%= submit_tag "Sign In", class: "login-btn" %>
+        
+        <div class="signup-link">
+            Don't have an account? <a href="#">Sign up</a>
+        </div>
+    <% end %>
+</div>
