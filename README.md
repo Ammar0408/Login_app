@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> fd339fa (Fix script execution permissions and setup remote)
 # README
 
 This README would normally document whatever steps are necessary to get the
@@ -23,7 +26,10 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+<<<<<<< HEAD
 =======
 # Login_app
 LAB1 - LOGIN
 >>>>>>> cb63253a1556d6d693dffbe7b7bb7898634a2739
+=======
+>>>>>>> fd339fa (Fix script execution permissions and setup remote)
