@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # README
 
 This README would normally document whatever steps are necessary to get the
@@ -22,3 +23,7 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+=======
+# Login_app
+LAB1 - LOGIN
+>>>>>>> cb63253a1556d6d693dffbe7b7bb7898634a2739
